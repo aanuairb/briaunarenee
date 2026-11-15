@@ -37,15 +37,15 @@
     if (v._vid) { v._vid.pause(); v._vid.remove(); }
     if (v._btn) v._btn.remove();
     all = all.filter(function (f) { return f !== v; });
-    v._vid = v._btn = null; v._loaded = false; v._userPaused = false;
+    v._vid = v._btn = null; v._loaded = false; v._failed = false; v._userPaused = false;
     v.classList.remove('has-video', 'sound');
   }
 
   function loadVideo(v) {
-    if (v._loaded) return;
-    v._loaded = true;
+    if (v._loaded || v._failed) return;
     var src = v.getAttribute('data-video');
     if (!src) return;
+    v._loaded = true;
 
     var vid = document.createElement('video');
     vid.muted = true; vid.defaultMuted = true; vid.loop = true; vid.playsInline = true;
@@ -53,44 +53,47 @@
     vid.preload = reduceMotion ? 'metadata' : 'auto';
     vid.setAttribute('aria-label', titleFor(v));
 
-    vid.addEventListener('error', function () { vid.remove(); }, { once: true });
-    vid.addEventListener('loadeddata', function () {
-      if (v._vid !== vid) return;
-      v.classList.add('has-video');
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'play';
-      btn.innerHTML = '<span aria-hidden="true"></span>';
-      v.appendChild(btn);
-      v._btn = btn;
-      btn.addEventListener('click', function () {
-        if (vid.paused || vid.muted) {
-          all.forEach(function (o) { if (o !== v && o._vid && !o._vid.muted) { o._vid.muted = true; setState(o); } });
-          vid.muted = false;
-          v._userPaused = false;
-          var p = vid.play(); if (p && p.catch) p.catch(function () {});
-        } else {
-          vid.pause();
-          v._userPaused = true;
-        }
-        setState(v);
-      });
-      vid.addEventListener('pause', function () { setState(v); });
-      vid.addEventListener('play', function () { setState(v); });
-      all.push(v);
+    // the play button shows straight away (iPhone Safari loads nothing until asked to play)
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'play';
+    btn.innerHTML = '<span aria-hidden="true"></span>';
+    btn.addEventListener('click', function () {
+      if (vid.paused || vid.muted) {
+        all.forEach(function (o) { if (o !== v && o._vid && !o._vid.muted) { o._vid.muted = true; setState(o); } });
+        vid.muted = false;
+        v._userPaused = false;
+        var p = vid.play(); if (p && p.catch) p.catch(function () {});
+      } else {
+        vid.pause();
+        v._userPaused = true;
+      }
       setState(v);
-      if (v._inView) autoplay(v);
     });
 
+    function showVideo() { if (v._vid === vid) v.classList.add('has-video'); }
+    vid.addEventListener('loadeddata', showVideo);
+    vid.addEventListener('playing', showVideo);
+    vid.addEventListener('pause', function () { setState(v); });
+    vid.addEventListener('play', function () { setState(v); });
+    vid.addEventListener('volumechange', function () { setState(v); });
+    // missing or broken file: remove it and keep the placeholder
+    vid.addEventListener('error', function () { if (v._vid === vid) { unload(v); v._failed = true; } }, { once: true });
+
     v._vid = vid;
+    v._btn = btn;
     // "#t=0.1" makes iPhone Safari show a frame when nothing autoplays
     vid.src = reduceMotion ? src + '#t=0.1' : src;
     var poster = v.querySelector('img.poster');
     if (poster) poster.insertAdjacentElement('afterend', vid); else v.insertBefore(vid, v.firstChild);
+    v.appendChild(btn);
+    all.push(v);
+    setState(v);
+    if (v._inView) autoplay(v);
   }
 
   function autoplay(v) {
-    if (reduceMotion || !v._vid || v._userPaused || !v.classList.contains('has-video')) return;
+    if (reduceMotion || !v._vid || v._userPaused) return;
     var p = v._vid.play(); if (p && p.catch) p.catch(function () {});
   }
 
