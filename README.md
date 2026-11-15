@@ -7,36 +7,23 @@ Every spot you need to edit is marked with ✏️ in `index.html`. Search the fi
 
 ## Your "add my content" day
 
-### 1. Videos (just drop them in)
-Put your files in `assets/videos/` with these exact names:
+### 1. Videos (routine slots)
+Videos live in `assets/videos/`, cover images in `assets/images/`.
 
-| File name | Where it shows |
-|---|---|
-| `hero-1.mp4` | Hero, left frame |
-| `hero-2.mp4` | Hero, middle (raised) frame |
-| `hero-3.mp4` | Hero, right frame |
-| `work-1.mp4` to `work-6.mp4` | Selected work cards, in order |
+| Slot | Video | Cover |
+|---|---|---|
+| Morning (7:00 am) | `morning-cleanser.mp4` | `morning-cleanser.jpg` |
+| Midday (1:00 pm) | `midday-app.mp4` (not filmed yet) | `midday-app.jpg` |
+| Evening (8:30 pm) | `evening-body-butter.mp4` | `evening-body-butter.jpg` |
+| Any day | `anyday-flex-disc.mp4` | `anyday-flex-disc.jpg` |
+| 3-hook demo | `hook-1.mp4`, `hook-2.mp4`, `hook-3.mp4` (not filmed yet) | `hook-1.jpg` etc. |
 
-That's all. Each placeholder is replaced automatically once its file exists.
-Hero videos and work videos autoplay muted and loop while on screen. Tapping a video plays it with sound.
+The top of the page reuses the morning, evening and any-day videos.
+Ask Claude to convert new phone videos. iPhone .mov files are too big; each should be under 8 MB.
 
-**Video tips**
-- Vertical 9:16, MP4 (H.264), ideally **under 8 MB each**. CapCut's "1080p, recommended" export works well.
-- Keep clips short. A 10–20 second cut works best for the hero.
-- Cloudflare Pages has a **25 MB limit per file**.
-
-### 2. Change the text on each work card
-In `index.html`, find `✏️ WORK SLOT 1` through `WORK SLOT 6`. On each one, change:
-- the **title** `<h3>…</h3>`
-- the **one-line description** `<p>…</p>`
-- the **format chips** `<li>…</li>`
-- `data-category`: one of `skin`, `body`, `hair`, `life`, `tech` (used by the filter buttons)
-- For paid work, change the tag to `<span class="tag client">Client project</span>`
-
-To add a 7th or 8th video, copy a whole `<article> … </article>` block, paste it below, and name the video `work-7.mp4`.
-To remove one, delete its whole block.
-
-Optional cover image (shown before a video loads): add `data-poster="assets/images/work-1.jpg"` next to `data-video`.
+### 2. Change the text in a slot
+In `index.html`, search for ✏️. Each routine slot has a time, a block name, a title, a product line,
+format chips and an "Actually worth it?" card. Quotes in that card must be your real words.
 
 ### 3. Your portrait
 Save it as `assets/images/portrait.jpg` (portrait shape, about 1000×1250, under 400 KB). It replaces the placeholder automatically.

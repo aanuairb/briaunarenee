@@ -4,25 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Briauna Renee | UGC Creator for Beauty, Self-Care &amp; Productivity</title>
-<meta name="description" content="Briauna Renee makes warm, honest short-form UGC videos for beauty, body care, self-care and productivity app brands: close-up texture, hands-on demos and calm voiceover.">
-<meta name="theme-color" content="#F6F0E7">
+<meta name="description" content="Briauna Renee makes warm, honest short-form UGC videos for beauty, body care, self-care and productivity app brands, filmed inside a real daily routine.">
+<meta name="theme-color" content="#F4EBDD">
 
-<!-- ✏️ EDIT: once you have your real web address, replace https://briaunarenee.pages.dev in the 3 lines below -->
+<!-- ✏️ EDIT: if you move to a custom domain, replace https://briaunarenee.pages.dev in the 4 lines below -->
 <link rel="canonical" href="https://briaunarenee.pages.dev/">
 <meta property="og:url" content="https://briaunarenee.pages.dev/">
 <meta property="og:image" content="https://briaunarenee.pages.dev/assets/og-image.jpg">
+<meta name="twitter:image" content="https://briaunarenee.pages.dev/assets/og-image.jpg">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Briauna Renee">
 <meta property="og:title" content="Briauna Renee | UGC Creator for Beauty, Self-Care & Productivity">
-<meta property="og:description" content="Videos that feel like a friend's recommendation. Warm, honest short-form UGC for beauty, self-care and productivity brands.">
+<meta property="og:description" content="Videos that feel like a friend's recommendation. Warm, honest short-form UGC filmed inside a real routine.">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Briauna Renee, UGC creator for beauty, self-care and productivity">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Briauna Renee | UGC Creator for Beauty, Self-Care & Productivity">
-<meta name="twitter:description" content="Videos that feel like a friend's recommendation. Warm, honest short-form UGC for beauty, self-care and productivity brands.">
-<meta name="twitter:image" content="https://briaunarenee.pages.dev/assets/og-image.jpg">
+<meta name="twitter:description" content="Videos that feel like a friend's recommendation. Warm, honest short-form UGC filmed inside a real routine.">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -30,20 +30,25 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&family=Montserrat:wght@700&family=Dancing+Script:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&family=Montserrat:wght@700&family=Dancing+Script:wght@600&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script src="script.js" defer></script>
 </head>
 <body>
+
+<!-- reusable hand-drawn heart doodle -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="heart" viewBox="0 0 40 36"><path d="M20 33C12 27 3.5 20.5 3.2 12.4 3 6.8 7.3 3 12 3.4c3.6.3 6.2 2.9 7.8 6.3 1.4-3.6 4.4-6.6 8.4-6.6 5.2 0 8.8 4.3 8.4 9.6-.6 7.8-8.7 14.3-16.4 20.6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
 
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- ============ NAV ============ -->
 <nav class="top" aria-label="Main">
   <div class="wrap">
-    <a class="logo" href="#top">Briauna Renee</a>
+    <a class="logo" href="#top">Briauna Renee <span class="script">ugc</span></a>
     <div class="links">
-      <a href="#work">Work</a>
+      <a href="#routine">The routine</a>
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a class="btn solid small" href="#contact">Work with me</a>
@@ -61,7 +66,7 @@
       <h1 class="serif">Videos that feel like a <i>friend's</i> recommendation.</h1>
       <p class="lead">I make warm, honest short-form videos that show your product in a real routine: close-up texture, hands-on demos and calm voiceover, made to stop the scroll without feeling like an ad.</p>
       <div class="ctas">
-        <a class="btn solid" href="#work">See my work</a>
+        <a class="btn solid" href="#routine">See my routine</a>
         <a class="btn ghost" href="#contact">Work with me</a>
       </div>
       <ul class="chips" aria-label="Niches">
@@ -69,130 +74,207 @@
       </ul>
     </div>
 
-    <!-- ✏️ HERO VIDEOS: drop your 3 strongest clips into assets/videos/ named
-         hero-1.mp4, hero-2.mp4, hero-3.mp4 (hero-2 is the raised middle one).
-         They autoplay muted and loop. Until a file exists, an illustrated placeholder shows. -->
-    <div class="reel">
-      <div class="v" data-video="assets/videos/hero-1.mp4" data-scene="jar" data-title="Body care sample">
-        <span class="tag">Body care</span>
+    <!-- ✏️ HERO VIDEOS: these reuse your routine videos. To swap one, change data-video and data-poster. -->
+    <div class="hero-reel">
+      <p class="note script" aria-hidden="true">a day in my routine <svg class="arrow" viewBox="0 0 60 40"><path d="M4 6c14 2 30 10 40 26m0 0-11-3m11 3 1-11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      <div class="reel">
+        <div class="v" data-video="assets/videos/morning-cleanser.mp4" data-poster="assets/images/morning-cleanser.jpg" data-title="Morning cleanser sample">
+          <span class="time">7:00 am</span>
+        </div>
+        <div class="v" data-video="assets/videos/evening-body-butter.mp4" data-poster="assets/images/evening-body-butter.jpg" data-title="After-shower body butter sample">
+          <span class="time">8:30 pm</span>
+        </div>
+        <div class="v" data-video="assets/videos/anyday-flex-disc.mp4" data-poster="assets/images/anyday-flex-disc.jpg" data-title="Flex disc unboxing sample">
+          <span class="time">any day</span>
+        </div>
       </div>
-      <div class="v" data-video="assets/videos/hero-2.mp4" data-scene="hair" data-title="Hair care sample">
-        <span class="tag">Hair</span>
-      </div>
-      <div class="v" data-video="assets/videos/hero-3.mp4" data-scene="bottle" data-title="Skincare sample">
-        <span class="tag">Skincare</span>
-      </div>
+      <svg class="doodle heart-1" aria-hidden="true"><use href="#heart"/></svg>
     </div>
   </div>
 </header>
 
-<!-- ============ SELLING POINTS ============ -->
-<div class="strip">
-  <ul class="wrap">
-    <li><b>3 hooks</b>with every video</li>
-    <li><b>5–7 days</b>turnaround after the product arrives</li>
-    <li><b>Captions</b>included on every edit</li>
-    <li><b>Ad-ready</b>9:16, clean + captioned files</li>
-  </ul>
+<!-- ============ MOVING SELLING POINTS ============ -->
+<div class="marquee" role="region" aria-label="What every video includes">
+  <div class="marquee-track">
+    <ul>
+      <li><b>3 hooks</b> with every video</li>
+      <li><b>5–7 days</b> turnaround after the product arrives</li>
+      <li><b>Captions</b> included on every edit</li>
+      <li><b>Ad-ready</b> 9:16, clean + captioned files</li>
+    </ul>
+    <ul aria-hidden="true">
+      <li><b>3 hooks</b> with every video</li>
+      <li><b>5–7 days</b> turnaround after the product arrives</li>
+      <li><b>Captions</b> included on every edit</li>
+      <li><b>Ad-ready</b> 9:16, clean + captioned files</li>
+    </ul>
+  </div>
 </div>
 
-<!-- ============ SELECTED WORK ============ -->
-<section id="work" class="work">
+<!-- ============ THE ROUTINE (selected work) ============ -->
+<section id="routine" class="routine">
   <div class="wrap">
     <div class="sh">
       <div>
-        <p class="label">Selected work</p>
-        <h2>Real routines, real texture.</h2>
+        <p class="label">The routine</p>
+        <h2>A day in the life of <i>your product.</i></h2>
       </div>
-      <p>A growing collection of concept work. Tap a category to filter.</p>
+      <p>Every sample is filmed inside a real part of my day, so your product shows up the way it would for your customer. Tap any video to watch with sound.</p>
     </div>
 
-    <div class="filters" role="group" aria-label="Filter work by category">
-      <button type="button" data-filter="all" aria-pressed="true">All</button>
-      <button type="button" data-filter="skin" aria-pressed="false">Skincare</button>
-      <button type="button" data-filter="body" aria-pressed="false">Body care</button>
-      <button type="button" data-filter="hair" aria-pressed="false">Hair</button>
-      <button type="button" data-filter="life" aria-pressed="false">Lifestyle</button>
-      <button type="button" data-filter="tech" aria-pressed="false">Tech &amp; apps</button>
-    </div>
-    <p class="sr-only" aria-live="polite" id="filter-status"></p>
+    <nav class="dayparts" aria-label="Jump to a time of day">
+      <a href="#morning"><span class="dot dot-mustard"></span>Morning</a>
+      <a href="#midday"><span class="dot dot-olive"></span>Midday</a>
+      <a href="#evening"><span class="dot dot-plum"></span>Evening</a>
+      <a href="#anyday"><span class="dot dot-terra"></span>Any day</a>
+    </nav>
 
     <!--
-      ✏️ HOW TO FILL A WORK SLOT
-      1. Put the video in assets/videos/ with the name shown in data-video (e.g. work-1.mp4).
-      2. Optional cover photo: add data-poster="assets/images/work-1.jpg".
-      3. Change the title (h3), the one-line description (p) and the format chips.
-      4. data-category = skin, body, hair, life or tech (this is what the filter buttons use).
-      5. Tag: leave "Concept sample", or for paid work change it to
-         <span class="tag client">Client project</span>
-      To ADD a slot: copy one whole <article> ... </article> block, paste it below and use work-7.mp4, work-8.mp4.
-      To REMOVE a slot: delete its whole <article> ... </article> block.
+      ✏️ HOW A ROUTINE SLOT WORKS
+      - data-video = the video file in assets/videos/, data-poster = its cover image in assets/images/
+      - Change the time, block name, title (h3), product line, format chips and your quotes.
+      - Quotes in "Actually worth it?" must be YOUR real words (they're taken from your video captions).
+      - For paid work, change the tag to <span class="tag client">Client project</span>
+      - To ADD a slot: copy a whole <article> ... </article> and paste it where it belongs in your day.
     -->
-    <div class="grid">
+    <ol class="day">
 
-      <!-- ✏️ WORK SLOT 1 -->
-      <article class="item" data-category="body">
-        <div class="v" data-video="assets/videos/work-1.mp4" data-scene="jar">
-          <span class="tag">Concept sample</span>
-        </div>
-        <h3>Body-care ritual</h3>
-        <p>Saltair body butter · sensory product showcase</p>
-        <ul class="fmt"><li>Hands-only</li><li>Texture close-ups</li><li>Voiceover</li></ul>
-      </article>
+      <!-- ✏️ MORNING SLOT -->
+      <li>
+        <article class="slot" id="morning">
+          <div class="when"><span class="clock">7:00</span><span class="ampm">am</span><span class="block">Morning reset</span></div>
+          <div class="v" data-video="assets/videos/morning-cleanser.mp4" data-poster="assets/images/morning-cleanser.jpg">
+            <span class="tag">Concept sample</span>
+          </div>
+          <div class="story">
+            <p class="cat cat-mustard">Skincare</p>
+            <h3>“Would you wash your face with a Dollar Tree cleanser?”</h3>
+            <p class="product">XtraCare Hydro Plus Hydrating Cleansing Gel · face-wash routine</p>
+            <ul class="fmt"><li>On camera</li><li>Texture close-ups</li><li>Captions</li></ul>
+            <div class="worth">
+              <p class="worth-q script">actually worth it?</p>
+              <ul class="quotes">
+                <li>“the texture is smooth and light”</li>
+                <li>“my skin felt clean and refreshed”</li>
+                <li>“I had no weird reactions”</li>
+              </ul>
+              <p class="verdict yes">Worth it <svg aria-hidden="true"><use href="#heart"/></svg></p>
+            </div>
+          </div>
+        </article>
+      </li>
 
-      <!-- ✏️ WORK SLOT 2 -->
-      <article class="item" data-category="skin">
-        <div class="v" data-video="assets/videos/work-2.mp4" data-scene="bottle">
-          <span class="tag">Concept sample</span>
-        </div>
-        <h3>Skincare, simply</h3>
-        <p>Hydrating cleanser · routine demo</p>
-        <ul class="fmt"><li>Product demo</li><li>Clean visuals</li></ul>
-      </article>
+      <!-- ✏️ MIDDAY SLOT -->
+      <li>
+        <article class="slot" id="midday">
+          <div class="when"><span class="clock">1:00</span><span class="ampm">pm</span><span class="block">Midday focus</span></div>
+          <div class="v" data-video="assets/videos/midday-planning.mp4" data-poster="assets/images/midday-planning.jpg">
+            <span class="tag">Concept sample</span>
+          </div>
+          <div class="story">
+            <p class="cat cat-olive">Lifestyle</p>
+            <h3>Plan my week with me</h3>
+            <p class="product">Slow, intentional planning · on-screen text + B-roll</p>
+            <ul class="fmt"><li>Lifestyle</li><li>B-roll</li><li>On-screen text</li></ul>
+            <p class="soon">Calm, everyday moments are a natural fit for my content. This one turns a slow planning routine into three simple tips.</p>
+            <div class="worth">
+              <p class="worth-q script">the three tips</p>
+              <ol class="quotes tips">
+                <li>“start with planning once a week”</li>
+                <li>“keep your list small: 3–5 main goals for the week”</li>
+                <li>“write it down first, keep it visible as a reminder”</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+      </li>
 
-      <!-- ✏️ WORK SLOT 3 -->
-      <article class="item" data-category="life">
-        <div class="v" data-video="assets/videos/work-3.mp4" data-scene="bag">
-          <span class="tag">Concept sample</span>
-        </div>
-        <h3>Everyday discovery</h3>
-        <p>Flex pouch · unboxing &amp; lifestyle</p>
-        <ul class="fmt"><li>Unboxing</li><li>Hands-only</li></ul>
-      </article>
+      <!-- ✏️ EVENING SLOT -->
+      <li>
+        <article class="slot" id="evening">
+          <div class="when"><span class="clock">8:30</span><span class="ampm">pm</span><span class="block">After-shower wind-down</span></div>
+          <div class="v" data-video="assets/videos/evening-body-butter.mp4" data-poster="assets/images/evening-body-butter.jpg">
+            <span class="tag">Concept sample</span>
+          </div>
+          <div class="story">
+            <p class="cat cat-plum">Body care</p>
+            <h3>“This body butter smells like summer in a jar.”</h3>
+            <p class="product">Saltair Coral Coast Multi-Lipid Body Butter · sensory showcase</p>
+            <ul class="fmt"><li>Hands-only</li><li>Texture close-ups</li><li>Captions</li></ul>
+            <div class="worth">
+              <p class="worth-q script">actually worth it?</p>
+              <ul class="quotes">
+                <li>“the texture is so creamy and smooth”</li>
+                <li>“it leaves my skin feeling soft and moisturized for hours”</li>
+                <li>“this body butter will always be a staple in my after-shower routine”</li>
+              </ul>
+              <p class="verdict yes">Worth it <svg aria-hidden="true"><use href="#heart"/></svg></p>
+            </div>
+          </div>
+        </article>
+      </li>
 
-      <!-- ✏️ WORK SLOT 4 -->
-      <article class="item" data-category="hair">
-        <div class="v" data-video="assets/videos/work-4.mp4" data-scene="hair">
-          <span class="tag">Concept sample</span>
-        </div>
-        <h3>Hair, start to finish</h3>
-        <p>Hair care · routine + result</p>
-        <ul class="fmt"><li>On camera</li><li>Voiceover</li></ul>
-      </article>
+      <!-- ✏️ ANY DAY SLOT -->
+      <li>
+        <article class="slot" id="anyday">
+          <div class="when"><span class="clock any">any</span><span class="ampm">day</span><span class="block">Self-care, restocked</span></div>
+          <div class="v" data-video="assets/videos/anyday-flex-disc.mp4" data-poster="assets/images/anyday-flex-disc.jpg">
+            <span class="tag">Concept sample</span>
+          </div>
+          <div class="story">
+            <p class="cat cat-terra">Self-care</p>
+            <h3>“I paid $28.99 for a reusable disc.”</h3>
+            <p class="product">Flex Reusable Disc bundle · unboxing &amp; first look</p>
+            <ul class="fmt"><li>Unboxing</li><li>Hands-only</li><li>Captions</li></ul>
+            <div class="worth">
+              <p class="worth-q script">actually worth it?</p>
+              <ul class="quotes">
+                <li>“it's clear, flexible, it looks cool”</li>
+                <li>“definitely read these first”</li>
+              </ul>
+              <p class="verdict pending">First look · full review coming</p>
+            </div>
+          </div>
+        </article>
+      </li>
 
-      <!-- ✏️ WORK SLOT 5 -->
-      <article class="item" data-category="skin">
-        <div class="v" data-video="assets/videos/work-5.mp4" data-scene="spf">
-          <span class="tag">Concept sample</span>
-        </div>
-        <h3>The no-white-cast test</h3>
-        <p>Sunscreen · honest testimonial</p>
-        <ul class="fmt"><li>Talking to camera</li><li>Before / after</li></ul>
-      </article>
-
-      <!-- ✏️ WORK SLOT 6 -->
-      <article class="item" data-category="tech">
-        <div class="v" data-video="assets/videos/work-6.mp4" data-scene="app">
-          <span class="tag">Concept sample</span>
-        </div>
-        <h3>Plan my week with me</h3>
-        <p>Planning app · screen-recorded demo</p>
-        <ul class="fmt"><li>Screen recording</li><li>Voiceover</li></ul>
-      </article>
-
-    </div>
+    </ol>
 
     <p class="disclose"><b>About these samples:</b> this portfolio features self-initiated concept work created to show my filming, editing and storytelling. Samples are not commissioned partnerships unless stated. Any product opinions shared reflect my genuine experience.</p>
+  </div>
+</section>
+
+<!-- ============ ONE PRODUCT, THREE HOOKS ============ -->
+<!--
+  ✏️ 3-HOOK DEMO: film ONE product video with 3 different openings.
+  Save them as assets/videos/hook-1.mp4, hook-2.mp4, hook-3.mp4 (optional covers: assets/images/hook-1.jpg etc.).
+  Then replace each "Hook line goes here" with the first line you say, and the product line under the heading.
+  Until the files exist, a placeholder shows.
+-->
+<!-- ✏️ HIDDEN for now: to bring it back, delete the word  hidden  on the next line and add
+     <a href="#hooks">3 hooks</a> back to the top menu. -->
+<section id="hooks" class="hooks" hidden>
+  <div class="wrap">
+    <div class="hooks-grid">
+      <div class="hooks-text">
+        <p class="label">One product, three hooks</p>
+        <h2>Same video. <i>Three ways in.</i></h2>
+        <p>Every video comes with 3 hook variations, so you can test which opening stops your audience. Only the first few seconds change. Tap a hook to compare.</p>
+        <p class="hook-product">Product: <span>coming soon</span></p>
+        <div class="hook-tabs" role="tablist" aria-label="Hook variations">
+          <button type="button" role="tab" aria-selected="true" data-video="assets/videos/hook-1.mp4" data-poster="assets/images/hook-1.jpg"><span class="n">01</span><span class="h">Hook line goes here</span><span class="k">Question hook</span></button>
+          <button type="button" role="tab" aria-selected="false" data-video="assets/videos/hook-2.mp4" data-poster="assets/images/hook-2.jpg"><span class="n">02</span><span class="h">Hook line goes here</span><span class="k">Honest-review hook</span></button>
+          <button type="button" role="tab" aria-selected="false" data-video="assets/videos/hook-3.mp4" data-poster="assets/images/hook-3.jpg"><span class="n">03</span><span class="h">Hook line goes here</span><span class="k">Routine hook</span></button>
+        </div>
+      </div>
+      <div class="hooks-frame">
+        <div class="v empty" id="hook-frame" role="tabpanel" data-video="assets/videos/hook-1.mp4" data-poster="assets/images/hook-1.jpg" data-title="Hook 1">
+          <span class="tag">Hook <span id="hook-num">1</span> of 3</span>
+          <div class="empty-msg"><svg aria-hidden="true"><use href="#heart"/></svg><span class="script">3-hook demo</span><span>filming soon</span></div>
+        </div>
+        <svg class="doodle heart-2" aria-hidden="true"><use href="#heart"/></svg>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -202,22 +284,20 @@
     <div class="sh">
       <div>
         <p class="label">Ways we can work together</p>
-        <h2>Content with intention.</h2>
+        <h2>Content with <i>intention.</i></h2>
       </div>
       <p>Short-form content for beauty, body care, self-care and lifestyle brands, plus app demos for productivity tools.</p>
     </div>
-    <div class="two">
-      <div class="panel">
-        <div class="svc">
-          <div><span class="ico ico-clay" aria-hidden="true">🎥</span><h3>Short-form product video</h3><p>Vertical videos built around how your product looks, feels and fits into a real day.</p></div>
-          <div><span class="ico ico-sage" aria-hidden="true">✋</span><h3>Hands-only demos</h3><p>Clean close-ups that keep every eye on the product and its texture.</p></div>
-          <div><span class="ico ico-lav" aria-hidden="true">🎙️</span><h3>Voiceover storytelling</h3><p>Warm, calm narration over lifestyle footage, ready for ads or organic.</p></div>
-          <div><span class="ico ico-sand" aria-hidden="true">📱</span><h3>App &amp; tech demos</h3><p>Screen-recorded walkthroughs that make your product easy to understand.</p></div>
-        </div>
+    <div class="svc-grid">
+      <div class="svc-cards">
+        <div class="card tab-terra"><span class="num">01</span><h3>Short-form product video</h3><p>Vertical videos built around how your product looks, feels and fits into a real day.</p></div>
+        <div class="card tab-olive"><span class="num">02</span><h3>Hands-only demos</h3><p>Clean close-ups that keep every eye on the product and its texture.</p></div>
+        <div class="card tab-plum"><span class="num">03</span><h3>Voiceover storytelling</h3><p>Warm, calm narration over lifestyle footage, ready for ads or organic.</p></div>
+        <div class="card tab-mustard"><span class="num">04</span><h3>App &amp; tech demos</h3><p>Screen-recorded walkthroughs that make your product easy to understand.</p></div>
       </div>
-      <div class="panel">
-        <p class="label">Every video includes</p>
-        <ul class="incl">
+      <div class="includes">
+        <p class="script includes-title">every video includes</p>
+        <ul class="checklist">
           <li>3 hook variations to test</li>
           <li>Captions, plus a clean version without text</li>
           <li>1 round of revisions</li>
@@ -236,7 +316,7 @@
     <div class="sh">
       <div>
         <p class="label">How it works</p>
-        <h2 id="process-title">Simple from start to finish.</h2>
+        <h2 id="process-title">Simple from <i>start to finish.</i></h2>
       </div>
     </div>
     <ol class="steps">
@@ -252,17 +332,18 @@
 <!-- ============ ABOUT ============ -->
 <section class="about" id="about">
   <div class="wrap">
-    <!-- ✏️ PORTRAIT: save your photo as assets/images/portrait.jpg (portrait shape, about 1000×1250).
-         It replaces the placeholder automatically. -->
-    <div class="portrait">
-      <span class="ph-text">Photo placeholder<br>assets/images/portrait.jpg</span>
-      <img src="assets/images/portrait.jpg" alt="Briauna Renee smiling in soft natural light" width="1000" height="1250" loading="lazy" decoding="async" onerror="this.remove()">
+    <!-- ✏️ PORTRAIT: replace assets/images/portrait.jpg with a new photo anytime (portrait shape, about 1000×1250). -->
+    <div class="portrait-wrap">
+      <div class="portrait">
+        <img src="assets/images/portrait.jpg" alt="Briauna Renee in pink glasses and a dark green sweatshirt, looking at the camera" width="1000" height="1250" loading="lazy" decoding="async">
+      </div>
+      <p class="sticker script" aria-hidden="true">hi, i'm bri <svg><use href="#heart"/></svg></p>
     </div>
-    <div>
+    <div class="about-text">
       <p class="label">A little about me</p>
       <h2>Beauty in the <i>everyday.</i></h2>
       <p>I'm Briauna, a beauty and lifestyle creator drawn to the small details that make a product feel like part of real life. My approach is warm, honest and unhurried: the texture of a body butter, a routine that fits into an ordinary morning, a small moment worth slowing down for.</p>
-      <p>I also build my own websites and planning tools, so I'm just as comfortable walking through an app as I am filming a skincare routine.</p>
+      <p>I'm also the organized one. I build my own websites and planning tools, so I'm just as comfortable walking through an app as I am filming a skincare routine, and every project gets a real plan before the camera comes out.</p>
       <ul class="facts">
         <li><b>Specialties</b>Skincare, body care, hair, self-care, productivity apps</li>
         <li><b>Style</b>Soft, natural light · cozy, editorial · real</li>
@@ -278,10 +359,10 @@
     <div class="two auto">
       <div>
         <p class="label">Brands I'd love to create for</p>
-        <h2 id="fit-title" class="fit-title">If it belongs in a calm, intentional routine, it fits here.</h2>
+        <h2 id="fit-title" class="fit-title">If it belongs in a calm, intentional routine, <i>it fits here.</i></h2>
         <ul class="fit">
-          <li class="bg-clay">Skincare</li><li class="bg-sage">Body care</li><li class="bg-lav">Hair care</li>
-          <li class="bg-sand">Bath &amp; self-care</li><li class="bg-sage">Home &amp; cozy living</li><li class="bg-lav">Productivity &amp; planning apps</li>
+          <li class="bg-terra">Skincare</li><li class="bg-olive">Body care</li><li class="bg-plum">Hair care</li>
+          <li class="bg-mustard">Bath &amp; self-care</li><li class="bg-olive">Home &amp; cozy living</li><li class="bg-plum">Productivity &amp; planning apps</li>
         </ul>
       </div>
 
@@ -298,17 +379,19 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
+<!-- (Contact form: to be added in the next step.) -->
 <section id="contact" class="contact-section">
   <div class="wrap">
     <div class="contact">
+      <svg class="doodle heart-3" aria-hidden="true"><use href="#heart"/></svg>
       <p class="label">Have a project in mind?</p>
-      <h2>Let's create something thoughtful.</h2>
+      <h2>Let's create something <i>thoughtful.</i></h2>
       <p>For UGC projects, product storytelling and app demos, I'd love to hear what you're working on. I reply within 1–2 business days.</p>
 
       <!-- ✏️ EMAIL: change it in BOTH places on the next line (inside mailto: and between the > <) -->
       <div class="mail"><a id="email" href="mailto:briaunarenee@gmail.com?subject=UGC%20project">briaunarenee@gmail.com</a><button type="button" id="copy">Copy email</button></div>
 
-      <!-- ✏️ SOCIAL LINKS: check these open your profiles -->
+      <!-- ✏️ SOCIAL LINKS -->
       <ul class="socials">
         <li><a href="https://www.tiktok.com/@briaunarenee" target="_blank" rel="noopener">TikTok @briaunarenee</a></li>
         <li><a href="https://www.instagram.com/briaunarenee/" target="_blank" rel="noopener">Instagram @briaunarenee</a></li>
@@ -321,7 +404,7 @@
 </main>
 
 <footer>
-  <span class="script">Briauna Renee</span>
+  <span class="script sig">Briauna Renee <svg aria-hidden="true"><use href="#heart"/></svg></span>
   <p>UGC creator · beauty, self-care &amp; productivity · © <span id="year">2026</span></p>
 </footer>
 
