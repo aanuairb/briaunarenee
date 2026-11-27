@@ -4,16 +4,19 @@
    updates everywhere.
    ========================================================= */
 :root{
-  --cream:#F4EBDD; --paper:#FBF6EF; --linen:#EADBC6;
-  --espresso:#2B1C15; --cocoa:#4E3828; --muted:#6B5646;
-  --terra:#A9512E; --terra-soft:#F0D7C8;
-  --olive:#5F6237; --olive-soft:#E3E3CC;
-  --plum:#5C2D41; --plum-soft:#EBD9DF;
-  --mustard:#D7A13F; --mustard-soft:#F5E5C2;
-  --line:#E2D2BC;
-  --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
+  /* brand palette */
+  --black:#141110; --warm-cream:#FBF7F1; --espresso:#2B1D16; --gold:#B8893B;
+  --clay:#B26446; --blush:#EBC9BB; --rose:#C98F82;
+  /* tints/neutrals from the brand palette */
+  --cream:#F3EBDF; --paper:#FBF7F1; --linen:#E4D6C6; --line:#E4D6C6;
+  --cocoa:#2B1D16; --muted:#6E5D52;
+  --terra:#B26446; --terra-soft:#EBC9BB;
+  --olive:#C98F82; --olive-soft:#EBC9BB;
+  --plum:#B26446; --plum-soft:#EBC9BB;
+  --mustard:#B8893B; --mustard-soft:#EAD7B2;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
   --sans:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-  --caps:Montserrat,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --caps:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
   --script:"Dancing Script","Snell Roundhand","Apple Chancery",cursive;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -300,4 +303,150 @@ footer p{margin:6px 0 0}
   .marquee-track{width:auto}
   .marquee ul[aria-hidden]{display:none}
   .marquee ul{flex-wrap:wrap;justify-content:center;row-gap:8px}
+}
+
+/* =========================================================
+   Brand refresh (Nov 2026): Cormorant Garamond, brand palette,
+   blush section, paper grain, sound labels, gentle motion
+   ========================================================= */
+body{background-color:var(--cream);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.17 0 0 0 0 0.11 0 0 0 0 0.09 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+nav.top{background:rgba(243,235,223,.93)}
+
+/* headlines: Cormorant Garamond semibold */
+.serif,.hero h1,.sh h2,.about h2,.hooks h2,.fit-title,.contact h2,.story h3,.card h3,.clock,.kind blockquote p,.marquee b,.card .num,.steps li::before,.logo{font-family:var(--serif);font-weight:600}
+h1 i,h2 i,.story h3 i,.clock.any{font-family:var(--serif);font-style:italic;font-weight:600}
+.logo{font-weight:700;font-size:27px}
+.hero h1{font-size:clamp(50px,7vw,90px);line-height:.98}
+.sh h2,.about h2,.hooks h2{font-size:clamp(40px,5vw,62px);line-height:1.02}
+.fit-title{font-size:clamp(34px,4vw,48px);line-height:1.05}
+.contact h2{font-size:clamp(42px,6vw,70px)}
+.story h3{font-size:clamp(30px,3vw,40px);line-height:1.08}
+.clock{font-size:64px}
+.card h3{font-size:27px}
+.card .num{font-size:34px;color:var(--rose)}
+.marquee b{font-size:26px;color:var(--warm-cream)}
+.quotes li{font-family:var(--serif);font-size:21px;font-weight:500}
+.tips li::before{font-family:var(--serif)}
+@media(max-width:1020px){.clock{font-size:52px}}
+@media(max-width:760px){.clock{font-size:46px}}
+
+/* small labels: DM Sans, espresso with a clay accent line */
+.label{font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.22em;color:var(--espresso);display:flex;align-items:center;gap:10px}
+.label::before{content:"";width:22px;height:2px;background:var(--clay);flex:none}
+.about .label,.hooks .label{color:var(--gold)}
+.about .label::before,.hooks .label::before{background:var(--gold)}
+.contact .label{color:var(--warm-cream);justify-content:center}
+.contact .label::before{background:var(--warm-cream)}
+.kind .label{justify-content:center}
+.time,.v .tag,.cat,.verdict,.ampm,.btn,.mail button,.includes .btn{font-family:var(--sans)}
+.ampm{font-weight:700}
+
+/* script accents in clay */
+.block,.note,.note .arrow,.worth-q,.empty-msg .script{color:var(--clay)}
+
+/* timeline dots: morning gold, midday rose clay, evening espresso, any day clay */
+#morning .when::after{background:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+#midday .when::after{background:var(--rose);box-shadow:0 0 0 2px var(--rose)}
+#evening .when::after{background:var(--espresso);box-shadow:0 0 0 2px var(--espresso)}
+#anyday .when::after{background:var(--clay);box-shadow:0 0 0 2px var(--clay)}
+.dot-mustard{background:var(--gold)}.dot-olive{background:var(--rose)}.dot-plum{background:var(--espresso)}.dot-terra{background:var(--clay)}
+
+/* category tags: blush + espresso */
+.cat,.cat-mustard,.cat-olive,.cat-plum,.cat-terra{background:var(--blush);color:var(--espresso);font-weight:700;font-size:11px}
+
+/* verdict buttons */
+.verdict.yes{background:var(--espresso);color:var(--warm-cream)}
+.verdict.yes svg{color:var(--blush)}
+.verdict.pending{background:var(--blush);color:var(--espresso)}
+
+/* service card top borders: clay, rose clay, espresso, gold */
+.tab-terra::before{background:var(--clay)}.tab-olive::before{background:var(--rose)}.tab-plum::before{background:var(--espresso)}.tab-mustard::before{background:var(--gold)}
+.card{background:var(--warm-cream)}
+.includes{background:var(--espresso)}
+.includes-title{color:var(--gold)}
+.includes .btn.solid{background:var(--gold);border-color:var(--gold);color:var(--espresso)}
+.includes .btn.solid:hover{background:var(--warm-cream);border-color:var(--warm-cream)}
+
+/* "Brands I'd love to create for": full-width blush */
+.fit-section{background:var(--blush);padding:90px 0}
+.fit-title i{color:var(--espresso)}
+.fit li{font-size:19px;font-weight:600;padding:10px 20px;color:var(--espresso)}
+.fit .pill-cream{background:var(--warm-cream)}
+.fit .pill-blush{background:#F3DDD3}
+.fit .pill-rose{background:var(--rose);color:var(--espresso)}
+.fit .pill-clay{background:var(--clay);color:var(--warm-cream)}
+.fit .pill-gold{background:var(--mustard-soft)}
+.kind{background:var(--warm-cream)}
+.contact-section{padding-top:90px}
+
+/* about: espresso, blush accent */
+.about{background:var(--espresso)}
+.about h2 i{color:var(--blush)}
+.sticker{background:var(--gold);color:var(--espresso)}
+.sticker svg{color:var(--espresso)}
+
+/* contact: clay (large text only, for readability) */
+.contact{background:var(--clay)}
+.contact h2 i{color:var(--blush)}
+.contact>p:not(.label){font-family:var(--serif);font-style:italic;font-weight:500;font-size:24px;line-height:1.35;color:var(--warm-cream);max-width:26em}
+.socials{font-size:19px;font-weight:600;color:var(--warm-cream)}
+.mail{background:var(--warm-cream)}
+.mail button{background:var(--espresso);color:var(--warm-cream)}
+.mail button:hover{background:var(--black)}
+.heart-3{color:rgba(251,247,241,.22)}
+
+/* buttons */
+.btn.solid{background:var(--espresso);border-color:var(--espresso);color:var(--warm-cream)}
+.btn.solid:hover{background:var(--clay);border-color:var(--clay)}
+.btn.ghost{border-color:var(--espresso);color:var(--espresso)}
+.chips li,.fmt li,.dayparts a,.steps li,.worth,.disclose{background:var(--warm-cream)}
+.time{background:var(--gold);color:var(--espresso)}
+.marquee{background:var(--espresso)}
+.marquee li::after{color:var(--gold)}
+
+/* "tap for sound" label on every video */
+.v .snd{position:absolute;z-index:5;top:10px;right:10px;display:none;align-items:center;gap:5px;font:700 10px var(--sans);letter-spacing:.06em;text-transform:lowercase;background:rgba(251,247,241,.92);color:var(--espresso);padding:5px 9px;border-radius:99px;pointer-events:none;white-space:nowrap}
+.v .snd svg{width:12px;height:12px}
+.v.ready .snd{display:inline-flex}
+.v .play span{display:none}
+.reel .v .tag+.snd,.slot .v .snd{top:auto;bottom:12px;right:12px}
+.reel .v .snd{bottom:auto;top:10px;right:8px;font-size:9px;padding:4px 7px}
+@media(max-width:480px){.reel .v .snd{font-size:8.5px;padding:3px 6px;top:7px;right:6px}.reel .v .snd svg{display:none}}
+
+/* gentle motion */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+.card,.slot>.v,.steps li{transition:transform .3s ease,box-shadow .3s ease}
+@media (hover:hover){
+  .card:hover,.steps li:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(43,29,22,.12)}
+  .slot>.v:hover{transform:translateY(-4px);box-shadow:0 24px 40px -16px rgba(43,29,22,.5)}
+}
+
+/* phones: pinned "Work with me" button */
+.sticky-cta{display:none}
+@media(max-width:760px){
+  .sticky-cta{display:block;position:fixed;z-index:40;left:14px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));text-align:center;background:var(--espresso);color:var(--warm-cream);text-decoration:none;font:700 13px var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:16px;border-radius:99px;box-shadow:0 10px 30px rgba(43,29,22,.3);transition:opacity .3s,transform .3s}
+  .sticky-cta.away{opacity:0;transform:translateY(20px);pointer-events:none}
+  footer{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important}
+  .card:hover,.steps li:hover,.slot>.v:hover{transform:none!important}
+  .sticky-cta.away{transform:none}
+}
+
+/* mobile polish */
+.label{align-items:flex-start}
+.label::before{margin-top:.55em}
+.contact .label{align-items:center}
+.contact .label::before{margin-top:0}
+@media(max-width:480px){
+  .hero{padding-top:30px}
+  .hero h1{font-size:46px;margin:12px 0 16px}
+  .label{letter-spacing:.16em;font-size:11px}
+  .lead{font-size:16.5px;margin-bottom:22px}
+  .ctas{flex-wrap:nowrap;gap:10px}
+  .ctas .btn{padding:14px 16px;font-size:11.5px;letter-spacing:.08em;white-space:nowrap}
+  .chips{margin-top:20px}
 }

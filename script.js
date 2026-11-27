@@ -13,12 +13,16 @@
     return h ? h.textContent.trim() : 'sample video';
   }
 
+  var SPK_OFF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9l4 6M21 9l-4 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  var SPK_ON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+
   function setState(v) {
-    var vid = v._vid, btn = v._btn;
+    var vid = v._vid, btn = v._btn, lab = v._lab;
     if (!vid || !btn) return;
     var sounding = !vid.paused && !vid.muted;
     v.classList.toggle('sound', sounding);
-    btn.setAttribute('aria-label', (sounding ? 'Pause: ' : 'Play with sound: ') + titleFor(v));
+    btn.setAttribute('aria-label', (vid.paused ? 'Play with sound: ' : sounding ? 'Mute: ' : 'Turn sound on: ') + titleFor(v));
+    if (lab) lab.innerHTML = vid.paused ? SPK_OFF + 'tap to play' : sounding ? SPK_ON + 'sound on' : SPK_OFF + 'tap for sound';
   }
 
   function addPoster(v) {
@@ -37,7 +41,9 @@
     if (v._vid) { v._vid.pause(); v._vid.remove(); }
     if (v._btn) v._btn.remove();
     all = all.filter(function (f) { return f !== v; });
-    v._vid = v._btn = null; v._loaded = false; v._failed = false; v._userPaused = false;
+    if (v._lab) v._lab.remove();
+    v.classList.remove('ready');
+    v._vid = v._btn = v._lab = null; v._loaded = false; v._failed = false; v._userPaused = false;
     v.classList.remove('has-video', 'sound');
   }
 
@@ -58,6 +64,7 @@
     btn.type = 'button';
     btn.className = 'play';
     btn.innerHTML = '<span aria-hidden="true"></span>';
+    // tap = sound on / off (and starts the video if it isn't playing, e.g. Low Power Mode)
     btn.addEventListener('click', function () {
       if (vid.paused || vid.muted) {
         all.forEach(function (o) { if (o !== v && o._vid && !o._vid.muted) { o._vid.muted = true; setState(o); } });
@@ -65,11 +72,13 @@
         v._userPaused = false;
         var p = vid.play(); if (p && p.catch) p.catch(function () {});
       } else {
-        vid.pause();
-        v._userPaused = true;
+        vid.muted = true;
       }
       setState(v);
     });
+    var lab = document.createElement('span');
+    lab.className = 'snd';
+    v._lab = lab;
 
     function showVideo() { if (v._vid === vid) v.classList.add('has-video'); }
     vid.addEventListener('loadeddata', showVideo);
@@ -86,7 +95,9 @@
     vid.src = reduceMotion ? src + '#t=0.1' : src;
     var poster = v.querySelector('img.poster');
     if (poster) poster.insertAdjacentElement('afterend', vid); else v.insertBefore(vid, v.firstChild);
+    v.appendChild(lab);
     v.appendChild(btn);
+    v.classList.add('ready');
     all.push(v);
     setState(v);
     if (v._inView) autoplay(v);
@@ -141,6 +152,29 @@
       if (n) { e.preventDefault(); selectTab(n, true); }
     });
   });
+
+  /* ---------- gentle fade-up as sections scroll into view ---------- */
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    var revealEls = document.querySelectorAll('.sh, .dayparts, .day > li, .disclose, .svc-grid, .steps, .about .wrap, .fit-section .wrap, .contact');
+    var rio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    Array.prototype.forEach.call(revealEls, function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight) return; // already on screen: leave visible
+      el.classList.add('reveal');
+      rio.observe(el);
+    });
+  }
+
+  /* ---------- phones: hide the pinned "Work with me" button at the contact section ---------- */
+  var cta = document.querySelector('.sticky-cta');
+  var contactEl = document.getElementById('contact');
+  if (cta && contactEl && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { cta.classList.toggle('away', e.isIntersecting); });
+    }, { threshold: 0.1 }).observe(contactEl);
+  }
 
   /* ---------- copy email ---------- */
   var copyBtn = document.getElementById('copy');
